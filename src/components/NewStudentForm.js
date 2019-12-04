@@ -36,6 +36,8 @@ class NewStudentForm extends Component {
       fullName: '',
       email: ''
     })
+
+    this.props.addStudentCallback(newStudent)
   }
 
   render() {

@@ -1,3 +1,8 @@
+ul {
+  display: flex;
+  flex-wrap: wrap
+}
+
 .leaves {
   background-color: green 
 }
@@ -16,4 +21,18 @@
 
 .absent p {
   color: red
+}
+
+li {
+  list-style: none;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 0.5em;
+  display: inline-block;
+  width: 250px
+}
+
+button {
+
+  margin: 5px
 }

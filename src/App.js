@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import StudentCollection from './components/StudentCollection'
-import NameDisplay from './components/NameDisplay'
-import NewStudentForm from './components/NewStudentForm'
+//import NameDisplay from './components/NameDisplay'
+//import NewStudentForm from './components/NewStudentForm'
 
 //function App() {
 class App extends React.Component {
@@ -20,7 +20,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <NewStudentForm />
           <StudentCollection people={this.students} />
         </header>
       </div>

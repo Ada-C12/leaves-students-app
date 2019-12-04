@@ -1,6 +1,7 @@
 import React from 'react';
 import PropType from 'prop-types';
 import Student from './Student';
+import NewStudentForm from './NewStudentForm';
 
 //const StudentCollection = (props) => {
 class StudentCollection extends React.Component {
@@ -25,6 +26,14 @@ class StudentCollection extends React.Component {
       students,
     });
   }
+
+  addStudent = (student) =>{
+    this.setState({
+      students: this.state.students.concat(student)
+    })
+
+  }
+
 
   deleteStudent = (studentEmail) => {
     // Use indexOf to get the index
@@ -55,9 +64,13 @@ class StudentCollection extends React.Component {
   }
   render () {
     return (
-      <ul>
-        {this.makeCollection()}
-      </ul>
+      <div>
+        <NewStudentForm addStudentCallback={this.addStudent} />
+        <h3>Students</h3>
+        <ul>
+          {this.makeCollection()}
+        </ul>
+      </div>
     );
   }
 };
