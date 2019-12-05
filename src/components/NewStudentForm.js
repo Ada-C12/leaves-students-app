@@ -17,6 +17,14 @@ class NewStudentForm extends Component {
     })
   }
 
+  emailValid = () => {
+    return this.state.email.match(/\S+@\S+/);
+  }
+
+  nameValid = () => {
+    return this.state.fullName.match(/[A-Za-z]+/);
+  }
+
   onEmailChange = (event) => {
     console.log(`Email Field updated ${event.target.value}`);
     this.setState({
@@ -49,6 +57,7 @@ class NewStudentForm extends Component {
           name="fullName"
           value={this.state.fullName}
           onChange={this.onNameChange} 
+          className={this.nameValid() ? "valid": "invalid"}
           />
         </div>
         <div>
@@ -57,6 +66,7 @@ class NewStudentForm extends Component {
           name="email" 
           value={this.state.email}
           onChange={this.onEmailChange} 
+          className={this.emailValid() ? "valid": "invalid"}
           />
         </div>
         <input
