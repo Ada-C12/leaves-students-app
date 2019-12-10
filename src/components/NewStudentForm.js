@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  './NewStudentForm.css';
+import './NewStudentForm.css';
 
 class NewStudentForm extends Component {
   constructor() {
@@ -11,17 +11,13 @@ class NewStudentForm extends Component {
     }
   }
 
-  onNameChange = (event) => {
-    this.setState({
-      fullName: event.target.value
-    })
-    //console.log(`Name field updated ${this.state.fullName}`)
-  }
+  onFieldChange = (event) => {
+    const { name, value } = event.target;
 
-  onEmailChange = (event) => {
-    this.setState({
-      email: event.target.value
-    })
+    const updatedState = {};
+    updatedState[name] = value;
+
+    this.setState(updatedState);
   }
 
   onFormSubmit = (event) => {
@@ -36,29 +32,29 @@ class NewStudentForm extends Component {
     this.setState({
       fullName: '',
       email: ''
-    })
+    });
 
     this.props.addStudentCallback(newStudent)
 
   }
 
-  render() {
+  render () {
     return (
       <form className="new-student-form" onSubmit={this.onFormSubmit}>
         <div>
           <label htmlFor="fullName">Name:</label>
-          <input 
+          <input
             name="fullName"
             value={this.state.fullName}
-            onChange={this.onNameChange} 
+            onChange={this.onFieldChange}
           />
         </div>
         <div>
           <label htmlFor="email">Email:</label>
-          <input 
-            name="email" 
+          <input
+            name="email"
             value={this.state.email}
-            onChange={this.onEmailChange} 
+            onChange={this.onFieldChange}
           />
         </div>
         <input
